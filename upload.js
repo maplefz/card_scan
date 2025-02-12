@@ -8,14 +8,14 @@
             const reader = new FileReader();
             
             reader.onload = function(e) {
-                // 显示预览
+                const base64 = e.target.result;
+                // 显示完整Base64用于预览
                 $('#previewImage').css({
-                    'background-image': 'url(' + e.target.result + ')',
+                    'background-image': `url(${base64})`,
                     'display': 'block'
                 });
-                
-                // 显示Base64编码
-                $('#base64Output').val(e.target.result);
+                // 显示纯数据部分
+                $('#base64Output').val(base64.split(',')[1]);
             };
 
             // 读取为DataURL
