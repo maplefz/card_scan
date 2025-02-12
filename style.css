@@ -23,7 +23,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 body {
-    font-family: arial, sans-serif;
+    padding: 20px;
+    font-family: Arial, sans-serif;
 }
 
 ol, ul {
@@ -62,11 +63,8 @@ table {
 }
 
 #container {
-    border: 1px solid #dadada;
-    color: #838383;
-    font-size: 12px;
-    margin-top: 10px;
-    background-color: #FFF;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 #uploader .queueList {
@@ -482,5 +480,48 @@ table {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    display: none;
+}
+
+#uploadBtn {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.upload-label {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #00b7ee;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#previewBox {
+    width: 320px;
+    height: 320px;
+    margin: 20px auto;
+    border: 2px dashed #ccc;
+    background: #000;
+}
+
+#previewImage {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+}
+
+#base64Output {
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#fileInput {
     display: none;
 }
