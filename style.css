@@ -490,6 +490,8 @@ table {
 #uploadBtn {
     text-align: center;
     margin: 20px 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .upload-label {
@@ -499,14 +501,22 @@ table {
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3s;
+    font-size: 16px;
+}
+
+.upload-label:hover {
+    background: #00a2d4;
 }
 
 #previewBox {
-    width: 320px;
-    height: 320px;
+    width: 300px;
+    height: 200px;
     margin: 20px auto;
     border: 2px dashed #ccc;
-    background: #000;
+    background: #f8f8f8;
+    position: relative;
+    overflow: hidden;
 }
 
 #previewImage {
@@ -516,6 +526,9 @@ table {
     background-repeat: no-repeat;
     background-position: center;
     display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #base64Output {
@@ -527,9 +540,35 @@ table {
 }
 
 #fileInput {
-    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
 }
 
 .webuploader-pick {
     float: left;
+}
+
+/* 加载动画 */
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #00b7ee;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }

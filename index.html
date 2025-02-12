@@ -9,10 +9,14 @@
     <div id="container">
         <div id="uploadBtn">
             <input type="file" id="fileInput" accept="image/*" capture="camera">
-            <label for="fileInput" class="upload-label">点击拍摄/选择身份证照片</label>
+            <label for="fileInput" class="upload-label">
+                <span class="icon-camera"></span>
+                点击拍摄/上传身份证
+            </label>
         </div>
         <div id="previewBox">
             <div id="previewImage"></div>
+            <div class="preview-tip">图片预览区</div>
         </div>
         <textarea id="base64Output" placeholder="Base64编码将显示在这里"></textarea>
     </div>
