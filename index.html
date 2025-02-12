@@ -1,26 +1,63 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>身份证拍照预览</title>
-    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>WebUploader演示</title>
+    <link rel="stylesheet" type="text/css" href="./webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 <body>
-    <div id="container">
-        <div id="uploadBtn">
-            <input type="file" id="fileInput" accept="image/*" capture="camera">
-            <label for="fileInput" class="upload-label">
-                <span class="icon-camera"></span>
-                点击拍摄/上传身份证
-            </label>
+    <div id="wrapper">
+        <div id="container">
+            <!--头部，相册选择和格式选择-->
+
+            <div id="uploader">
+                <div class="queueList">
+                    <div id="dndArea" class="placeholder">
+                        <div id="filePicker"></div>
+                        <p>或将照片拖到这里，单次最多可选300张</p>
+                    </div>
+                </div>
+                <div class="statusBar" style="display:none;">
+                    <div class="progress">
+                        <span class="text">0%</span>
+                        <span class="percentage"></span>
+                    </div><div class="info"></div>
+                    <div class="btns">
+                        <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                    </div>
+					<input type="file" name="upload" onchange="onChooseFile(this)" accept="image/png,image/jpeg,image/gif;capture=camera" capture="camera"> 
+                </div>
+            </div>
         </div>
-        <div id="previewBox">
-            <div id="previewImage"></div>
-            <div class="preview-tip">图片预览区</div>
-        </div>
-        <textarea id="base64Output" placeholder="Base64编码将显示在这里"></textarea>
     </div>
-    <script src="jquery.js"></script>
-    <script src="upload.js"></script>
+	<div>
+    <h2>文件上传 111</h2>
+    <p>type="file" accept="image/*" name="file1" id="Pic1"</p>
+    <input type="file" accept="image/*" name="file1" id="Pic1">
+</div>
+<div>
+    <h2>文件上传 222</h2>
+    <p>type="file" accept="image/*" id="Pic2" name="file"</p>
+    <input type="file" accept="image/*" name="file2" id="Pic2" />
+</div>
+  <div>
+    <h2>文件上传 333 不加name</h2>
+    <p>type="file" accept="image/*" id="Pic3"</p>
+    <input type="file" accept="image/*" id="Pic3" name="file3">
+  </div>
+  <div>
+    <h2>文件上传 444 不加id</h2>
+    <p>type="file" accept="image/*" name="file4"</p>
+    <input type="file" accept="image/*" name="file4">
+  </div>
+  <div>
+    <h2>文件上传 555 都不加</h2>
+    <p>type="file"</p>
+    <input type="file">
+  </div>
+    <script type="text/javascript" src="./jquery.js"></script>
+    <script type="text/javascript" src="./webuploader.js?v=6"></script>
+    <script type="text/javascript" src="./upload.js"></script>
 </body>
 </html>
