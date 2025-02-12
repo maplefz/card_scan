@@ -9,16 +9,15 @@
             
             reader.onload = function(e) {
                 const base64 = e.target.result;
-                // 显示完整Base64用于预览
+                // 显示预览
                 $('#previewImage').css({
                     'background-image': `url(${base64})`,
                     'display': 'block'
                 });
-                // 显示纯数据部分
-                $('#base64Output').val(base64.split(',')[1]);
+                // 显示Base64（带前缀）
+                $('#base64Output').val(base64);
             };
 
-            // 读取为DataURL
             reader.readAsDataURL(file);
         });
     });
