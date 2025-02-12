@@ -9,55 +9,26 @@
 <body>
     <div id="wrapper">
         <div id="container">
-            <!--头部，相册选择和格式选择-->
+            <!-- 独立的选择按钮 -->
+            <div id="uploadBtnContainer">
+                <div id="filePicker" class="webuploader-pick">点击选择身份证照片</div>
+            </div>
+            
+            <!-- 图片预览区域 -->
+            <div id="photoPreview">
+                <div id="photo"></div>
+            </div>
 
-            <div id="uploader">
-                <div class="queueList">
-                    <div id="dndArea" class="placeholder">
-                        <div id="filePicker"></div>
-                        <p>或将照片拖到这里，单次最多可选300张</p>
-                    </div>
-                </div>
-                <div class="statusBar" style="display:none;">
-                    <div class="progress">
-                        <span class="text">0%</span>
-                        <span class="percentage"></span>
-                    </div><div class="info"></div>
-                    <div class="btns">
-                        <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
-                    </div>
-					<input type="file" name="upload" onchange="onChooseFile(this)" accept="image/png,image/jpeg,image/gif;capture=camera" capture="camera"> 
+            <!-- 上传控制 -->
+            <div class="statusBar">
+                <div class="btns">
+                    <div class="uploadBtn">立即上传</div>
                 </div>
             </div>
         </div>
     </div>
-	<div>
-    <h2>文件上传 111</h2>
-    <p>type="file" accept="image/*" name="file1" id="Pic1"</p>
-    <input type="file" accept="image/*" name="file1" id="Pic1">
-</div>
-<div>
-    <h2>文件上传 222</h2>
-    <p>type="file" accept="image/*" id="Pic2" name="file"</p>
-    <input type="file" accept="image/*" name="file2" id="Pic2" />
-</div>
-  <div>
-    <h2>文件上传 333 不加name</h2>
-    <p>type="file" accept="image/*" id="Pic3"</p>
-    <input type="file" accept="image/*" id="Pic3" name="file3">
-  </div>
-  <div>
-    <h2>文件上传 444 不加id</h2>
-    <p>type="file" accept="image/*" name="file4"</p>
-    <input type="file" accept="image/*" name="file4">
-  </div>
-  <div>
-    <h2>文件上传 555 都不加</h2>
-    <p>type="file"</p>
-    <input type="file">
-  </div>
-    <script type="text/javascript" src="./jquery.js"></script>
-    <script type="text/javascript" src="./webuploader.js?v=6"></script>
-    <script type="text/javascript" src="./upload.js"></script>
+    <script src="./jquery.js"></script>
+    <script src="./webuploader.js"></script>
+    <script src="./upload.js"></script>
 </body>
 </html>

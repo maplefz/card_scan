@@ -412,6 +412,75 @@ table {
 }
 
 #uploader .statusBar .btns .uploadBtn.disabled {
-    pointer-events: none;
-    opacity: 0.6;
+    background: #cccccc !important;
+    cursor: not-allowed;
+}
+
+/* 新增单图预览样式 */
+.preview-container {
+    width: 300px;
+    height: 200px;
+    margin: 20px auto;
+    border: 2px dashed #ccc;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none; /* 保持初始隐藏 */
+}
+
+/* 当有图片时显示预览容器 */
+.has-image .preview-container {
+    display: block !important;
+}
+
+/* 隐藏原来的文件列表 */
+.filelist {
+    display: none !important;
+}
+
+/* 调整状态栏常显 */
+.statusBar {
+    display: block !important;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* 调整上传按钮样式 */
+.uploadBtn {
+    padding: 10px 30px !important;
+    font-size: 16px !important;
+}
+
+/* 独立按钮样式 */
+#uploadBtnContainer {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#filePicker {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #00b7ee;
+    color: white;
+    border-radius: 5px;
+}
+
+/* 图片预览区域 */
+#photoPreview {
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+    border: 2px dashed #ccc;
+    background: #000;
+}
+
+#photo {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
 }
