@@ -191,7 +191,7 @@ table {
     height: 100%;
     background: #1483d8 url(./progress.png) repeat-x;
 
-    -webit-transition: width 200ms linear;
+    -webkit-transition: width 200ms linear;
     -moz-transition: width 200ms linear;
     -o-transition: width 200ms linear;
     -ms-transition: width 200ms linear;
@@ -246,11 +246,17 @@ table {
     -ms-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
 
-    -webit-transition: 200ms ease-out;
-    -moz-transition: 200ms ease-out;
-    -o-transition: 200ms ease-out;
-    -ms-transition: 200ms ease-out;
-    transition: 200ms ease-out;
+    -webkit-transition: width 200ms linear;
+    -moz-transition: width 200ms linear;
+    -o-transition: width 200ms linear;
+    -ms-transition: width 200ms linear;
+    transition: width 200ms linear;
+
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 #uploader .filelist li img {
@@ -295,7 +301,6 @@ table {
 #uploader .filelist div.file-panel span {
     width: 24px;
     height: 24px;
-    display: inline;
     float: right;
     text-indent: -9999px;
     overflow: hidden;
@@ -374,7 +379,6 @@ table {
 }
 
 #filePicker2 {
-    display: inline-block;
     float: left;
 }
 
@@ -524,4 +528,8 @@ table {
 
 #fileInput {
     display: none;
+}
+
+.webuploader-pick {
+    float: left;
 }
