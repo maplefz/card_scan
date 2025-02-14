@@ -52,25 +52,6 @@
                 return support;
             } )(),
 
-            // 检测是否已经安装flash，检测flash的版本
-            flashVersion = ( function() {
-                var version;
-
-                try {
-                    version = navigator.plugins[ 'Shockwave Flash' ];
-                    version = version.description;
-                } catch ( ex ) {
-                    try {
-                        version = new ActiveXObject('ShockwaveFlash.ShockwaveFlash')
-                                .GetVariable('$version');
-                    } catch ( ex2 ) {
-                        version = '0.0';
-                    }
-                }
-                version = version.match( /\d+/g );
-                return parseFloat( version[ 0 ] + '.' + version[ 1 ], 10 );
-            } )(),
-
             supportTransition = (function(){
                 var s = document.createElement('p').style,
                     r = 'transition' in s ||
@@ -85,59 +66,7 @@
             // WebUploader实例
             uploader;
 
-        if ( !WebUploader.Uploader.support('flash') && WebUploader.browser.ie ) {
-
-            // flash 安装了但是版本过低。
-            if (flashVersion) {
-                (function(container) {
-                    window['expressinstallcallback'] = function( state ) {
-                        switch(state) {
-                            case 'Download.Cancelled':
-                                alert('您取消了更新！')
-                                break;
-
-                            case 'Download.Failed':
-                                alert('安装失败')
-                                break;
-
-                            default:
-                                alert('安装已成功，请刷新！');
-                                break;
-                        }
-                        delete window['expressinstallcallback'];
-                    };
-
-                    var swf = './expressInstall.swf';
-                    // insert flash object
-                    var html = '<object type="application/' +
-                            'x-shockwave-flash" data="' +  swf + '" ';
-
-                    if (WebUploader.browser.ie) {
-                        html += 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ';
-                    }
-
-                    html += 'width="100%" height="100%" style="outline:0">'  +
-                        '<param name="movie" value="' + swf + '" />' +
-                        '<param name="wmode" value="transparent" />' +
-                        '<param name="allowscriptaccess" value="always" />' +
-                    '</object>';
-
-                    container.html(html);
-
-                })($wrap);
-
-            // 压根就没有安转。
-            } else {
-                $wrap.html('<a href="http://www.adobe.com/go/getflashplayer" target="_blank" border="0"><img alt="get flash player" src="http://www.adobe.com/macromedia/style_guide/images/160x41_Get_Flash_Player.jpg" /></a>');
-            }
-
-            return;
-        } else if (!WebUploader.Uploader.support()) {
-            alert( 'Web Uploader 不支持您的浏览器！');
-            return;
-        }
-
-        // 实例化
+        // 实例化时指定只使用 html5 运行时
         uploader = WebUploader.create({
             pick: {
                 id: '#filePicker',
@@ -148,23 +77,21 @@
             },
             dnd: '#dndArea',
             paste: '#uploader',
-            swf: '../../dist/Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
             server: '../../server/fileupload.php',
-            // runtimeOrder: 'flash',
+            runtimeOrder: 'html5',  // 只使用 html5 运行时
+            
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            },
 
-            // accept: {
-            //     title: 'Images',
-            //     extensions: 'gif,jpg,jpeg,bmp,png',
-            //     mimeTypes: 'image/*'
-            // },
-
-            // 禁掉全局的拖拽功能。这样不会出现图片拖进页面的时候，把图片打开。
             disableGlobalDnd: true,
             fileNumLimit: 300,
-            fileSizeLimit: 200 * 1024 * 1024,    // 200 M
-            fileSingleSizeLimit: 50 * 1024 * 1024    // 50 M
+            fileSizeLimit: 200 * 1024 * 1024,    
+            fileSingleSizeLimit: 50 * 1024 * 1024    
         });
 
         // 拖拽时不接受 js, txt 文件。
@@ -196,7 +123,7 @@
         //     });
         // });
 
-        // 添加“添加文件”的按钮，
+        // 添加"添加文件"的按钮，
         uploader.addButton({
             id: '#filePicker2',
             label: '继续添加'

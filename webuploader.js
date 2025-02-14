@@ -7989,8 +7989,7 @@
         'widgets/validator',
         'widgets/md5',
     
-        // runtimes
-        // html5
+        // 只保留 html5 运行时
         'runtime/html5/blob',
         'runtime/html5/dnd',
         'runtime/html5/filepaste',
@@ -7999,14 +7998,7 @@
         'runtime/html5/androidpatch',
         'runtime/html5/image',
         'runtime/html5/transport',
-        'runtime/html5/md5',
-    
-        // flash
-        'runtime/flash/filepicker',
-        'runtime/flash/image',
-        'runtime/flash/transport',
-        'runtime/flash/blob',
-        'runtime/flash/md5'
+        'runtime/html5/md5'
     ], function( Base ) {
         return Base;
     });
